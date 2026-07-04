@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For summu 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <div class="floating-hearts" id="heartsBg"></div>
+
+    <audio id="bgMusic" loop>
+        <source src="summu music.mp3.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="stage0" class="stage active-stage">
+        <div class="glass-card text-center entry-card">
+            <div class="lock-icon">🔒</div>
+            <h2>A Secret Awaits</h2>
+            <p>Enter your special 4-digit code</p>
+            <input type="password" id="passwordInput" placeholder="••••" maxlength="4">
+            <button onclick="checkPassword()" class="btn-primary pulse-anim">Unlock Magic ✨</button>
+            <p id="loginError" class="error-msg" style="display: none; color: #ff4b72; margin-top: 10px; font-weight: bold;"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div id="finalContent" style="display: none; text-align: center;">
+            <h2 id="finalTitle" class="title-text rainbow-text">Pop the Gift Box! 🎁</h2>
+            <p id="finalSub" class="closing-quote">Something extra special is waiting inside...</p>
+            
+            <div id="giftBox" onclick="openFinalGift()" class="pulse-btn" style="font-size: 5rem; cursor: pointer; margin: 30px auto; width: fit-content;">🎁</div>
+
+            <div id="ultimateLoveScreen" style="display: none; opacity: 0; transition: all 1.5s cubic-bezier(0.25, 1, 0.5, 1); margin-top: 40px;">
+                <hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, #ff4b72, transparent); margin: 30px 0;">
+                
+                <div class="polaroid-stack-container">
+                    <div class="polaroid-memory-card stack-left">
+                        <img src="1000028758.png" alt="With You" class="real-us-img">
+                        <div class="polaroid-caption">My favorite smile... 🌸</div>
+                    </div>
+                    <div class="polaroid-memory-card stack-right">
+                        <img src="1000028760.png" alt="Us" class="real-us-img">
+                        <div class="polaroid-caption">Us. Forever & Always. ✨</div>
+                    </div>
+                </div>
+
+                <div class="emotional-letter">
+                    <p class="letter-line fade-in-line">I really hope you liked this little digital universe I built for you... 💖</p>
+                    <p class="letter-line fade-in-line">I know the image is AI-generated, but I couldn't resist creating something magical for you. Soon, we'll replace all those digital placeholders with a lifetime of our own real, beautiful memories together. For now, please adjust with this little surprise! 🥰</p>
+                    <p class="letter-line fade-in-line">Please don't mind that I used our photos and poured my heart out like this... I just couldn't hold back because you are truly my love, my happiest place, and my absolute world. 🌸</p>
+                    <p class="letter-line-strong fade-in-line">Happy Birthday, my favorite person. Sumaiya. 🎂✨</p>
+                </div>
+
+                <button onclick="restartExperience()" class="btn-secondary pop-hover" style="margin-top: 30px;">🔄 Replay Our Story</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
