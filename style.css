@@ -1,0 +1,268 @@
+/* --- Global Variables & Smooth Theme --- */
+:root {
+    --primary: #ff6b8b;
+    --primary-hover: #ff4771;
+    --bg-gradient: linear-gradient(135deg, #ffeef2 0%, #f3e5f5 100%);
+    --card-bg: rgba(255, 255, 255, 0.88);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* --- Floating Decorative Background Particles --- */
+.floating-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart-particle {
+    position: absolute;
+    bottom: -10%;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    animation: upwardFloat 6s linear infinite;
+}
+
+@keyframes upwardFloat {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+/* --- Core Structure Framework --- */
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    position: relative;
+    z-index: 5;
+}
+
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(255, 107, 139, 0.15);
+}
+
+.text-center { text-align: center; }
+
+/* --- Stage Controllers --- */
+.stage {
+    display: none;
+    width: 100%;
+}
+
+.stage.active-stage {
+    display: block;
+    animation: fadeInStage 0.8s ease forwards;
+}
+
+@keyframes fadeInStage {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Input & Buttons UI --- */
+input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 20px 0;
+    border: 2px solid #ffe1e7;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+input[type="password"]:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(255, 107, 139, 0.2);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary), #ff8da1);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 107, 139, 0.4);
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(255, 107, 139, 0.6);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #777;
+    border: 1px solid #ccc;
+    padding: 8px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #f0f0f0;
+}
+
+/* --- Animations & Special Effects --- */
+.pulse-anim {
+    animation: heartPulse 2s infinite;
+}
+
+@keyframes heartPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+}
+
+.rainbow-text {
+    background: linear-gradient(45deg, #ff4b72, #ff7657, #e01b5d, #ff4b72);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.closing-quote {
+    font-style: italic;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* ==========================================
+   ULTIMATE FINAL ALBUM DISPLAYS 
+========================================== */
+
+.polaroid-stack-container {
+    display: block;
+    position: relative;
+    height: 340px; 
+    width: 100%;
+    max-width: 320px;
+    margin: 20px auto;
+}
+
+.polaroid-memory-card {
+    background: #ffffff;
+    padding: 10px 10px 22px 10px;
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    position: absolute;
+    width: 160px; 
+    opacity: 0;
+    backface-visibility: hidden;
+}
+
+.real-us-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; 
+    border: 1px solid #f5f5f5;
+    display: block;
+    border-radius: 2px;
+}
+
+.polaroid-caption {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #444;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.stack-left {
+    top: 10px;
+    left: 15px;
+    animation: slideInLeft 1.4s cubic-bezier(0.175, 0.885, 0.32, 1.15) 0.3s forwards;
+}
+
+.stack-right {
+    top: 30px;
+    right: 15px;
+    animation: slideInRight 1.6s cubic-bezier(0.175, 0.885, 0.32, 1.15) 0.6s forwards;
+}
+
+@keyframes slideInLeft {
+    0% { transform: translate(-60px, 20px) rotate(-25deg); opacity: 0; }
+    100% { transform: translate(0, 0) rotate(-6deg); opacity: 1; z-index: 1; }
+}
+
+@keyframes slideInRight {
+    0% { transform: translate(60px, 20px) rotate(25deg); opacity: 0; }
+    100% { transform: translate(0, 0) rotate(6deg); opacity: 1; z-index: 2; }
+}
+
+.emotional-letter {
+    text-align: left;
+    margin-top: 30px;
+    padding: 0 10px;
+}
+
+.letter-line {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.letter-line-strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ff4b72;
+    margin-top: 20px;
+}
+
+.fade-in-line {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: lineRevealEffect 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes lineRevealEffect {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-line:nth-child(1) { animation-delay: 1.8s; }
+.fade-in-line:nth-child(2) { animation-delay: 3.2s; }
+.fade-in-line:nth-child(3) { animation-delay: 5.0s; }
+.fade-in-line:nth-child(4) { animation-delay: 6.8s; }
